@@ -1,1 +1,17 @@
 @import url("bootstrap");
+
+.number {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.extracted {
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+.last {
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+}

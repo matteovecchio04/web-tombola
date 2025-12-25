@@ -27,6 +27,11 @@ export default function Tombola() {
   }
 
   const [gameOver, setGameOver] = useState(false)
+  const endGame = () => {
+    setGameOver(true)
+    setExtractedNumbers([])
+    setLastExtracted(null)
+  }
 
 
   return (
@@ -56,7 +61,7 @@ export default function Tombola() {
         Ultimo numero: {lastExtracted}
       </div>
 
-      <button onClick={() => setGameOver(true)}>
+      <button onClick={endGame}>
         Termina Gioco
       </button>
     </>

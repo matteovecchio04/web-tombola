@@ -28,6 +28,7 @@ export default function Tombola() {
 
   const [gameOver, setGameOver] = useState(false)
 
+
   return (
     <>
       {numbers.map((number) => {
@@ -46,6 +47,18 @@ export default function Tombola() {
           </div>
         )
       })}
+
+      <button onClick={extractNumber}>
+        Estrai
+      </button>
+
+      <div>
+        Ultimo numero: {lastExtracted}
+      </div>
+
+      <button onClick={() => setGameOver(true)}>
+        Termina Gioco
+      </button>
     </>
   )
 }

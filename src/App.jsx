@@ -26,13 +26,26 @@ export default function Tombola() {
     setLastExtracted(n)
   }
 
+  const [gameOver, setGameOver] = useState(false)
+
   return (
     <>
-      {numbers.map((number) => (
-        <div key={number}>
-          {number}
-        </div>
-      ))}
+      {numbers.map((number) => {
+
+        let classe = "number"
+
+        if (number === lastExtracted) {
+          classe = "last"
+        } else if (extractedNumbers.includes(number)) {
+          classe = "extracted"
+        }
+
+        return (
+          <div key={number} className={classe}>
+            {number}
+          </div>
+        )
+      })}
     </>
   )
 }

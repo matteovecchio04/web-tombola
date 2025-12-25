@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-
 export default function Tombola() {
 
   // Create the array with a for cycle
@@ -12,9 +11,15 @@ export default function Tombola() {
     return numbers
   }
 
+  const numbers = createNumbers()
+
   return (
     <>
-      <h1>hello</h1>
+      {numbers.map((number) => (
+        <div key={number}>
+          {number}
+        </div>
+      ))}
     </>
   )
 }

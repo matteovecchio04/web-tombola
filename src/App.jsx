@@ -36,34 +36,46 @@ export default function Tombola() {
 
   return (
     <>
-      {numbers.map((number) => {
 
-        let classe = "number"
+      <div className='container mt-3'>
+        <h1 className='text-center mb-3 text-light'>TOMBOLA</h1>
+        <div className='d-flex justify-content-center'>
+          <div className='number-grid mb-3 me-3'>
+            {numbers.map((number) => {
 
-        if (number === lastExtracted) {
-          classe = "last"
-        } else if (extractedNumbers.includes(number)) {
-          classe = "extracted"
-        }
+              let classe = "number"
 
-        return (
-          <div key={number} className={classe}>
-            {number}
+              if (number === lastExtracted) {
+                classe = "last"
+              } else if (extractedNumbers.includes(number)) {
+                classe = "extracted"
+              }
+
+              return (
+                <div key={number} className={classe}>
+                  {number}
+                </div>
+              )
+            })}
           </div>
-        )
-      })}
 
-      <button onClick={extractNumber}>
-        Estrai
-      </button>
+          <div className='d-flex flex-column min-width'>
+            <div className='mb-2 text-center'>
+              Ultimo numero <div className='font'>{lastExtracted ? lastExtracted : "-"}</div>
+            </div>
 
-      <div>
-        Ultimo numero: {lastExtracted}
-      </div>
+            <hr />
 
-      <button onClick={endGame}>
-        Termina Gioco
-      </button>
+            <button className='btn btn-warning mb-2' onClick={extractNumber}>
+              Estrai
+            </button>
+
+            <button className='btn btn-danger mb-2' onClick={endGame}>
+              Termina Gioco
+            </button>
+          </div>
+        </div>
+      </div >
     </>
   )
 }

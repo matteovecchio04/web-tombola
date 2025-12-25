@@ -13,6 +13,19 @@ export default function Tombola() {
 
   const numbers = createNumbers()
 
+  const [extractedNumbers, setExtractedNumbers] = useState([]);
+  const [lastExtracted, setLastExtracted] = useState(null);
+
+  const extractNumber = () => {
+    const available = numbers.filter((number) => !extractedNumbers.includes(number))
+
+    const index = Math.floor(Math.random() * available.length)
+    const n = available[index]
+
+    setExtractedNumbers([...extractedNumbers, n])
+    setLastExtracted(n)
+  }
+
   return (
     <>
       {numbers.map((number) => (

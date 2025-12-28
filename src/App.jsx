@@ -70,7 +70,7 @@ export default function Tombola() {
               Estrai
             </button>
 
-            <button className='btn btn-danger mb-2' onClick={endGame}>
+            <button className='btn btn-danger mb-2' onClick={endGame} disabled={extractedNumbers.length < 15}>
               Termina Gioco
             </button>
           </div>
